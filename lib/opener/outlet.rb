@@ -30,7 +30,9 @@ module Opener
           end
         end
       end
-
+      
+      private
+      
       def submit_error(url, message)
         HTTPClient.post(url, :body => {:error => message})
       end

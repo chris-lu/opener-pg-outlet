@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     opener-outlet (0.0.1)
+      activerecord
       builder
       httpclient
       nokogiri
@@ -13,6 +14,9 @@ GEM
   remote: https://rubygems.org/
   remote: https://opener:Aek0YeeGup0ceephohcieW0eichiGha2Thoo0lohshunae9emaikeitainooleap@geminabox.olery.com/
   specs:
+    activerecord (2.3.18)
+      activesupport (= 2.3.18)
+    activesupport (2.3.18)
     builder (3.2.2)
     coderay (1.0.9)
     cucumber (1.3.2)

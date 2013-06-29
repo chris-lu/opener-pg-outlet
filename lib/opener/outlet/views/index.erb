@@ -12,6 +12,21 @@
     <p>When using callbacks, the last Callback URL should be the URL that points
       to Outlet. Then, when you submit your text, you get a URL where the result
       will be shown, when the processing is over.</p>
+      
+      <h2>Search for an output</h2>
+
+      <p>* required</p>
+      
+
+      <form action="<%=url("/")%>" method="POST">
+        <div>
+          <label for="request_id"/>Type the ID here*</label>
+          <br/>
+
+          <input type="text" name="request_id" id="text" rows="10" cols="50"/>
+        </div>
+        <input type="submit" value="Submit" />
+      </form>
 
   </body>
 </html>

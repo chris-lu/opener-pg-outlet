@@ -14,7 +14,11 @@ module Opener
       end
       
       get '/' do
-        erb :index
+        if params[:request_id]
+          redirect_to "/#{params[:request_id]}"
+        else
+          erb :index
+        end
       end
 
 

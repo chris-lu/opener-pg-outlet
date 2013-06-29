@@ -21,6 +21,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'uuidtools'
   gem.add_dependency 'sqlite3'
   gem.add_dependency 'activerecord', '~>3.2'
+  gem.add_dependency 'opener-webservice'
 
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'cucumber'

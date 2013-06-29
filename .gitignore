@@ -6,4 +6,4 @@ Gemfile.lock
 *~
 .rvmrc
 tmp/*
-db/production.db
+db/*

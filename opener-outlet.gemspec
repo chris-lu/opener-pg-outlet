@@ -4,7 +4,7 @@ Gem::Specification.new do |gem|
   gem.name                  = 'opener-outlet'
   gem.version               = Opener::Outlet::VERSION
   gem.authors               = ['development@olery.com']
-  gem.summary               = 'SimpleDB data storing for the web services output when using callbacks.'
+  gem.summary               = 'SQLite3 data storing for the web services output when using callbacks.'
   gem.description           = gem.summary
   gem.homepage              = "http://opener-project.github.com/"
   gem.has_rdoc              = 'yard'

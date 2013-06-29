@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'nokogiri'
+require File.expand_path('../../../../config/database', __FILE__)
 
 module Opener
   class Outlet 
@@ -7,7 +8,7 @@ module Opener
       
       post '/' do
         output            = Output.new
-        output.uuid         = params[:request_id]
+        output.uuid       = params[:request_id]
         output.text       = params[:input]
         output.save
       end

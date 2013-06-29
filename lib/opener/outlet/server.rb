@@ -12,6 +12,11 @@ module Opener
         output.text       = params[:input]
         output.save
       end
+      
+      get '/' do
+        erb :index
+      end
+
 
       get '/:request_id' do
         unless params[:request_id] == 'favicon.ico'

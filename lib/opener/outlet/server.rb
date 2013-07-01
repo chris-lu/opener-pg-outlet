@@ -34,6 +34,7 @@ module Opener
           rescue => error
             error_callback = params[:error_callback]
             submit_error(error_callback, error.message) if error_callback
+            content_type(:html)
             halt(500, error.message)      
           end
         end

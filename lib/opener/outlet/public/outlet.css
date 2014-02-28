@@ -1,0 +1,58 @@
+body {
+  font-family: arial;
+  line-height: 2em;
+  font-size: 15px;
+  margin-top: 3em;
+}
+
+.opener {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.entities {
+  margin: 1em;
+}
+
+.entities:before {
+  font-size: 16px;
+  font-weight: bold;
+  content: "Entities";
+}
+
+.opinions {
+  margin: 1em;
+}
+
+.opinions:before {
+  font-size: 16px;
+  font-weight: bold;
+  content: "Opinions";
+}
+
+.properties {
+  margin: 1em;
+}
+
+.properties:before {
+  font-size: 16px;
+  font-weight: bold;
+  content: "Aspects";
+}
+
+.positive {
+  background-color: #AFA;
+}
+
+.negative {
+  background-color: #FAA;
+}
+
+.entity {
+  border-bottom: 2px dotted #00F;
+}
+
+.property {
+  border-bottom: 2px solid orange;
+}

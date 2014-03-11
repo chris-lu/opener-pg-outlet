@@ -21,8 +21,8 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'uuidtools'
   gem.add_dependency 'jdbc-mysql'
   gem.add_dependency 'activerecord-jdbcmysql-adapter'
-  gem.add_dependency 'activerecord', '~>3.2.0'
-  gem.add_dependency 'activesupport', '~>3.2.0'
+  gem.add_dependency 'activerecord', '~>3.2'
+  gem.add_dependency 'activesupport', '~>3.2'
   gem.add_dependency 'opener-webservice'
 
   gem.add_development_dependency 'rspec'

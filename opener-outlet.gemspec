@@ -4,15 +4,22 @@ Gem::Specification.new do |gem|
   gem.name                  = 'opener-outlet'
   gem.version               = Opener::Outlet::VERSION
   gem.authors               = ['development@olery.com']
-  gem.summary               = 'SQLite3 data storing for the web services output when using callbacks.'
+  gem.summary               = 'Database storing for the web services output when using callbacks.'
   gem.description           = gem.summary
   gem.homepage              = "http://opener-project.github.com/"
   gem.has_rdoc              = 'yard'
   gem.required_ruby_version = '>= 1.9.2'
 
-  gem.files       = `git ls-files`.split("\n")
-  gem.executables = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  gem.test_files  = gem.files.grep(%r{^(test|spec|features)/})
+  gem.files = Dir.glob([
+    'config/**/*',
+    'lib/**/*',
+    'config.ru',
+    '*.gemspec',
+    'README.md',
+    'visualizer.rb'
+  ]).select { |file| File.file?(file) }
+
+  gem.executables = Dir.glob('bin/*').map { |file| File.basename(file) }
 
   gem.add_dependency 'builder', '~>3.0.0'
   gem.add_dependency 'sinatra', '~>1.4.2'

@@ -1,57 +1,109 @@
-# Outlet
+Outlet
+------------
 
 Component that stores results from the Opener Web Services chain into a SQLite 
 Database and shows them into your browser.
 
+### Confused by some terminology?
 
-## Installation
+This software is part of a larger collection of natural language processing
+tools known as "the OpeNER project". You can find more information about the
+project at (the OpeNER portal)[http://opener-project.github.io]. There you can
+also find references to terms like KAF (an XML standard to represent linguistic
+annotations in texts), component, cores, scenario's and pipelines.
 
-### As part of a Gemfile in a Ruby application
+Quick Use Example
+-----------------
 
-Add this line to your application's Gemfile:
+Installing the outlet can be done by executing:
 
-    gem 'opener-outlet',
-        :git=>"git@github.com:opener-project/outlet.git"
+    gem install opener-outlet
 
-And then execute:
+Please bare in mind that all components in OpeNER take KAF as an input and
+output KAF by default.
 
-    $ bundle install
+### Webservices
 
-## Usage
-
-The Opener Outlet comes equipped with a simple webservice. To start the
-webservice type:
+You can launch a webservice by executing:
 
     outlet-server
 
 This will launch a mini webserver with the webservice. It defaults to port 9292,
-so you can access it at:
+so you can access it at <http://localhost:9292>.
 
-    http://localhost:9292
-
-To launch it on a different port provide the ```-p [port-number]``` option like
+To launch it on a different port provide the `-p [port-number]` option like
 this:
 
-    opinion-detector-server -p 1234
+    outlet-server -p 1234
 
-It then launches at ```http://localhost:1234```
+It then launches at <http://localhost:1234>
 
-When you run a chain of web services using callbacks, the last URL should be the
-one that points to the Outlet Web Service. A unique id is generated and once the
-chain has finished processing the text, you can view the result in the URL that
-you get.
+Documentation on the Webservice is provided by surfing to the urls provided
+above. For more information on how to launch a webservice run the command with
+the ```-h``` option.
 
-## Contributing
 
-### Procedure
+### Daemon
 
-1. Pull it
-2. Create your feature branch (`git checkout -b features/my-new-feature`)
+Last but not least the outlet comes shipped with a daemon that
+can read jobs (and write) jobs to and from Amazon SQS queues. For more
+information type:
+
+    outlet-daemon -h
+
+
+Description of dependencies
+---------------------------
+
+This component runs best if you run it in an environment suited for OpeNER
+components. You can find an installation guide and helper tools in the (OpeNER
+installer)[https://github.com/opener-project/opener-installer] and (an
+installation guide on the Opener
+Website)[http://opener-project.github.io/getting-started/how-to/local-installation.html]
+
+At least you need the following system setup:
+
+### Depenencies for normal use:
+
+* JRuby 1.7.9 or newer
+* Ruby 1.9.3 or newer
+
+Domain Adaption
+---------------
+
+  TODO
+
+Language Extension
+------------------
+
+  TODO
+
+The Core
+--------
+
+The component is a fat wrapper around the actual language technology core. You
+can find the core technolies in the following repositories:
+
+* (link to) Related Core readmes
+
+Where to go from here
+---------------------
+
+* Check (the project websitere)[http://opener-project.github.io]
+* (Checkout the webservice)[http://opener.olery.com/outlet]
+
+Report problem/Get help
+-----------------------
+
+If you encounter problems, please email support@opener-project.eu or leave an
+issue in the (issue tracker)[https://github.com/opener-project/outlet/issues].
+
+
+Contributing
+------------
+
+1. Fork it ( http://github.com/opener-project/outlet/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin features/my-new-feature`)
-5. If you're confident, merge your changes into master.
-
-# What's next? 
-
-If you're interested in the opener-outlet, you also might want to check
-out opener-project/outlet.
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request

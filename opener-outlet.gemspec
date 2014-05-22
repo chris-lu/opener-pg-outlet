@@ -16,6 +16,7 @@ Gem::Specification.new do |gem|
     'config.ru',
     '*.gemspec',
     'README.md',
+    'exec/**/*',
     'visualizer.rb'
   ]).select { |file| File.file?(file) }
 
@@ -25,6 +26,8 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'sinatra', '~>1.4.2'
   gem.add_dependency 'nokogiri'
   gem.add_dependency 'puma'
+  gem.add_dependency 'opener-daemons'
+  gem.add_dependency 'opener-core', ['>= 0.1.2']
   gem.add_dependency 'httpclient'
   gem.add_dependency 'uuidtools'
   gem.add_dependency 'jdbc-mysql'

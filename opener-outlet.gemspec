@@ -35,6 +35,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'activerecord', '~>3.2'
   gem.add_dependency 'activesupport', '~>3.2'
   gem.add_dependency 'opener-webservice'
+  gem.add_dependency 'opener-kaf2json'
 
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'cucumber'

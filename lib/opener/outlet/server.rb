@@ -89,6 +89,28 @@ module Opener
           end
         end
       end
+      
+      get '/score/:request_id' do
+        unless params[:request_id] == 'favicon.ico'
+          begin
+            output = Output.find_by_uuid(params[:request_id])
+            if output
+              content_type('text/json')
+              processor = Opener::Scorer::OutputProcessor.new(output.text)
+              result = processor.process
+              body(result.to_json)
+            else
+              halt(404, "No record found for ID #{params[:request_id]}")
+            end
+          rescue => error
+            error_callback = params[:error_callback]
+
+            submit_error(error_callback, error.message) if error_callback
+
+            raise(error)
+          end
+        end
+      end
 
       private
 

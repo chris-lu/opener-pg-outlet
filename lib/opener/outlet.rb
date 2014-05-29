@@ -2,6 +2,7 @@ require_relative 'outlet/output'
 require_relative 'outlet/version'
 require_relative 'outlet/server'
 require 'opener/kaf_to_json'
+require 'opener/scorer/output_processor'
 
 module Opener
   class Outlet

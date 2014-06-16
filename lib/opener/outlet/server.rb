@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/json'
 require 'nokogiri'
 require 'stringio'
 require_relative './visualizer'
@@ -29,7 +30,7 @@ module Opener
           begin
             output = Output.find_by_uuid(params[:request_id])
             if output
-              content_type('text/json')
+              content_type(:json)
               kj = Opener::KafToJson.new
               json = kj.run(output.text) rescue output.text
               body(json)

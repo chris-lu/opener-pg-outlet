@@ -24,6 +24,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'builder', '~>3.0.0'
   gem.add_dependency 'sinatra', '~>1.4.2'
+  gem.add_dependency 'sinatra-contrib'
   gem.add_dependency 'nokogiri'
   gem.add_dependency 'puma'
   gem.add_dependency 'opener-daemons'

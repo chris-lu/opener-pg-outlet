@@ -26,18 +26,15 @@ Gem::Specification.new do |gem|
   gem.executables = Dir.glob('bin/*').map { |file| File.basename(file) }
 
   gem.add_dependency 'builder', '~>3.0.0'
-  gem.add_dependency 'sinatra', '~>1.4.2'
-  gem.add_dependency 'sinatra-contrib'
   gem.add_dependency 'nokogiri'
-  gem.add_dependency 'puma'
-  gem.add_dependency 'opener-daemons'
-  gem.add_dependency 'httpclient'
-  gem.add_dependency 'uuidtools'
   gem.add_dependency 'jdbc-mysql'
   gem.add_dependency 'activerecord-jdbcmysql-adapter'
-  gem.add_dependency 'activerecord', '~>3.2'
-  gem.add_dependency 'activesupport', '~>3.2'
-  gem.add_dependency 'opener-webservice'
+  gem.add_dependency 'activerecord', '~> 3.2'
+
+  gem.add_dependency 'opener-daemons', '~> 2.2'
+  gem.add_dependency 'opener-webservice', '~> 2.1'
+  gem.add_dependency 'opener-core', '~> 2.2'
+
   gem.add_dependency 'opener-kaf2json'
   gem.add_dependency 'opener-scorer'
 

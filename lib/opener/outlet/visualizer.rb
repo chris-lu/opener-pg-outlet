@@ -1,6 +1,3 @@
-#require "opener/kaf/visualizer/version"
-require 'nokogiri'
-
 module Opener
   module Kaf
     module Visualizer

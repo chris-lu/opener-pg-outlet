@@ -1,21 +1,10 @@
-require 'sinatra'
-require 'sinatra/json'
-require 'nokogiri'
-require 'stringio'
-require_relative './visualizer'
-
-require File.expand_path('../../../../config/database', __FILE__)
-
 module Opener
   class Outlet
-    class Server < Sinatra::Base
+    class Server < Webservice::Server
+      set :views, File.expand_path('../views', __FILE__)
 
-      post '/' do
-        output            = Output.new
-        output.uuid       = params[:request_id]
-        output.text       = params[:input]
-        output.save
-      end
+      self.text_processor  = Outlet
+      self.accepted_params = [:request_id]
 
       get '/' do
         if params[:request_id]
@@ -24,99 +13,72 @@ module Opener
           erb :index
         end
       end
-      
+
       get '/:request_id.json' do
         unless params[:request_id] == 'favicon.ico'
-          begin
-            output = Output.find_by_uuid(params[:request_id])
-            if output
-              content_type(:json)
-              kj = Opener::KafToJson.new
-              json = kj.run(output.text) rescue output.text
-              body(json)
-            else
-              halt(404, "No record found for ID #{params[:request_id]}")
-            end
-          rescue => error
-            error_callback = params[:error_callback]
+          output = Output.find_by_uuid(params[:request_id])
 
-            submit_error(error_callback, error.message) if error_callback
+          if output
+            content_type(:json)
 
-            raise(error)
+            kj   = Opener::KafToJson.new
+            json = kj.run(output.text)
+
+            body(json)
+          else
+            halt(404, "No record found for ID #{params[:request_id]}")
           end
         end
       end
 
       get '/:request_id' do
         unless params[:request_id] == 'favicon.ico'
-          begin
-            output = Output.find_by_uuid(params[:request_id])
-            if output
-              content_type(:xml)
-              body(output.text)
-            else
-              halt(404, "No record found for ID #{params[:request_id]}")
-            end
-          rescue => error
-            error_callback = params[:error_callback]
+          output = Output.find_by_uuid(params[:request_id])
 
-            submit_error(error_callback, error.message) if error_callback
+          if output
+            content_type(:xml)
 
-            raise(error)
+            body(output.text)
+          else
+            halt(404, "No record found for ID #{params[:request_id]}")
           end
         end
       end
 
       get '/html/:request_id' do
         unless params[:request_id] == 'favicon.ico'
-          begin
-            output = Output.find_by_uuid(params[:request_id])
-            if output
-              output = StringIO.new(output.text)
-              parser = Opener::Kaf::Visualizer::Parser.new(output)
-              doc = parser.parse
-              html = Opener::Kaf::Visualizer::HTMLTextPresenter.new(doc)
-              @parsed = html.to_html
-              erb :show
-            else
-              halt(404, "No record found for ID #{params[:request_id]}")
-            end
-          rescue => error
-            error_callback = params[:error_callback]
+          output = Output.find_by_uuid(params[:request_id])
 
-            submit_error(error_callback, error.message) if error_callback
+          if output
+            output = StringIO.new(output.text)
+            parser = Opener::Kaf::Visualizer::Parser.new(output)
+            doc    = parser.parse
+            html   = Opener::Kaf::Visualizer::HTMLTextPresenter.new(doc)
 
-            raise(error)
+            @parsed = html.to_html
+
+            erb :show
+          else
+            halt(404, "No record found for ID #{params[:request_id]}")
           end
         end
       end
-      
+
       get '/score/:request_id' do
         unless params[:request_id] == 'favicon.ico'
-          begin
-            output = Output.find_by_uuid(params[:request_id])
-            if output
-              content_type('text/json')
-              processor = Opener::Scorer::OutputProcessor.new(output.text)
-              result = processor.process
-              body(result.to_json)
-            else
-              halt(404, "No record found for ID #{params[:request_id]}")
-            end
-          rescue => error
-            error_callback = params[:error_callback]
+          output = Output.find_by_uuid(params[:request_id])
 
-            submit_error(error_callback, error.message) if error_callback
+          if output
+            content_type('text/json')
 
-            raise(error)
+            processor = Opener::Scorer::OutputProcessor.new(output.text)
+            result    = processor.process
+
+            body(result.to_json)
+          else
+            halt(404, "No record found for ID #{params[:request_id]}")
           end
         end
-      end
-
-      private
-
-      def submit_error(url, message)
-        HTTPClient.post(url, :body => {:error => message})
       end
     end # Server
   end # Outlet

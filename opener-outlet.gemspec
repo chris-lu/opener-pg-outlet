@@ -19,8 +19,7 @@ Gem::Specification.new do |gem|
     '*.gemspec',
     'README.md',
     'LICENSE.txt',
-    'exec/**/*',
-    'visualizer.rb'
+    'exec/**/*'
   ]).select { |file| File.file?(file) }
 
   gem.executables = Dir.glob('bin/*').map { |file| File.basename(file) }

@@ -24,7 +24,6 @@ Gem::Specification.new do |gem|
 
   gem.executables = Dir.glob('bin/*').map { |file| File.basename(file) }
 
-  gem.add_dependency 'builder', '~>3.0.0'
   gem.add_dependency 'nokogiri'
   gem.add_dependency 'jdbc-mysql'
   gem.add_dependency 'activerecord-jdbcmysql-adapter'

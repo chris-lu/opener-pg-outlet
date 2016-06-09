@@ -3,7 +3,7 @@
 require 'opener/webservice'
 
 parser = Opener::Webservice::OptionParser.new(
-  'opener-outlet',
+  'opener-pg-outlet',
   File.expand_path('../../config.ru', __FILE__)
 )
 

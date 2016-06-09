@@ -3,7 +3,7 @@
 require 'opener/daemons'
 
 controller = Opener::Daemons::Controller.new(
-  :name      => 'opener-outlet',
+  :name      => 'opener-pg-outlet',
   :exec_path => File.expand_path('../../exec/outlet.rb', __FILE__)
 )
 

@@ -15,7 +15,7 @@ annotations in texts), component, cores, scenario's and pipelines.
 
 Installing the outlet can be done by executing:
 
-    gem install opener-outlet
+    rvmsudo gem install opener-pg-outlet-1.0.0.gem
 
 Please keep in mind that all components in OpeNER take KAF as an input and
 output KAF by default.

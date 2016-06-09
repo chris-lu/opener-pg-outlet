@@ -4,7 +4,6 @@ require 'stringio'
 require 'active_record'
 require 'nokogiri'
 require 'opener/kaf_to_json'
-require 'opener/scorer'
 
 require_relative 'outlet/output'
 require_relative 'outlet/version'

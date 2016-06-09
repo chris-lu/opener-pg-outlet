@@ -1,12 +1,12 @@
 require File.expand_path('../lib/opener/outlet/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.name                  = 'opener-outlet'
+  gem.name                  = 'opener-pg-outlet'
   gem.version               = Opener::Outlet::VERSION
-  gem.authors               = ['development@olery.com']
+  gem.authors               = ['']
   gem.summary               = 'Database storing for the web services output when using callbacks.'
   gem.description           = gem.summary
-  gem.homepage              = "http://opener-project.github.com/"
+  gem.homepage              = "https://github.com/chris-lu/opener-pg-outlet"
   gem.has_rdoc              = 'yard'
   gem.required_ruby_version = '>= 1.9.2'
 
@@ -25,8 +25,8 @@ Gem::Specification.new do |gem|
   gem.executables = Dir.glob('bin/*').map { |file| File.basename(file) }
 
   gem.add_dependency 'nokogiri'
-  gem.add_dependency 'jdbc-mysql'
-  gem.add_dependency 'activerecord-jdbcmysql-adapter'
+  gem.add_dependency 'jdbc-postgres'
+  gem.add_dependency 'activerecord-jdbcpostgresql-adapter'
   gem.add_dependency 'activerecord', '~> 3.0'
 
   gem.add_dependency 'opener-daemons', '~> 2.2'
@@ -34,7 +34,6 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'opener-core', '~> 2.2'
 
   gem.add_dependency 'opener-kaf2json'
-  gem.add_dependency 'opener-scorer'
 
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'cucumber'

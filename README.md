@@ -24,7 +24,7 @@ output KAF by default.
 
 You can launch a webservice by executing:
 
-    outlet-server
+    outlet-pg-server
 
 This will launch a mini webserver with the webservice. It defaults to port 9292,
 so you can access it at <http://localhost:9292>.
@@ -32,7 +32,7 @@ so you can access it at <http://localhost:9292>.
 To launch it on a different port provide the `-p [port-number]` option like
 this:
 
-    outlet-server -p 1234
+    outlet-pg-server -p 1234
 
 It then launches at <http://localhost:1234>
 
@@ -45,7 +45,7 @@ the `--help` option.
 Last but not least the outlet comes shipped with a daemon that can read jobs
 (and write) jobs to and from Amazon SQS queues. For more information type:
 
-    outlet-daemon -h
+    outlet-pg-daemon -h
 
 ## Description of dependencies
 

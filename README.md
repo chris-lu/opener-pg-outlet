@@ -1,11 +1,11 @@
 # Outlet
 
-Component that stores results from the Opener Web Services chain into a SQLite
+Component that stores results from the Opener Web Services chain into a Postgres
 Database and shows them into your browser.
 
 ## Confused by some terminology?
 
-This software is part of a larger collection of natural language processing
+This software is an addon for a larger collection of natural language processing
 tools known as "the OpeNER project". You can find more information about the
 project at [the OpeNER portal](http://opener-project.github.io). There you can
 also find references to terms like KAF (an XML standard to represent linguistic

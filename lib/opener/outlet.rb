@@ -22,6 +22,7 @@ module Opener
 
     def run(input)
       output = Output.new(:uuid=>uuid, :text=>input)
+      output.uuid = uuid
 
       output.save!
 

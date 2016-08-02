@@ -28,6 +28,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'jdbc-postgres'
   gem.add_dependency 'activerecord-jdbcpostgresql-adapter'
   gem.add_dependency 'activerecord', '~> 3.0'
+  gem.add_dependency 'safe_attributes'
 
   gem.add_dependency 'opener-daemons', '~> 2.2'
   gem.add_dependency 'opener-webservice', '~> 2.1'
